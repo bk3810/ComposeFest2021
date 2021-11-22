@@ -32,10 +32,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BasicsCodelab2Theme {
-                //Text("Hello World!!!")
-                //MessageCard(Message("Android", "Jetpack Compose"))
-                Conversation(messages = SampleData.conversationSample)
+                MyApp()
+
             }
+//            BasicsCodelab2Theme {
+//                //Text("Hello World!!!")
+//                //MessageCard(Message("Android", "Jetpack Compose"))
+//                Conversation(messages = SampleData.conversationSample)
+//            }
 
 //            BasicsCodelab2Theme {
 //                // A surface container using the 'background' color from the theme
@@ -47,18 +51,32 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//@Composable
-//fun Greeting(name: String) {
-//    Text(text = "안녕하세요 $name!")
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    BasicsCodelab2Theme {
-//        Greeting("알파고님!")
-//    }
-//}
+@Composable
+private fun MyApp() {
+    Surface (color = MaterialTheme.colors.background) {
+        Greeting("Android")
+    }
+}
+
+@Composable
+private fun Greeting(name: String) {
+    Surface (color = MaterialTheme.colors.primary) {
+        Column(modifier = Modifier.padding(24.dp)) {
+            //Text(text = "안녕하세요 $name!", modifier = Modifier.padding(24.dp))
+            Text(text = "안녕하세요 ")
+            Text(text = name)
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun DefaultPreview() {
+    BasicsCodelab2Theme {
+        MyApp()
+    }
+}
 
 data class Message(val author: String, val body: String)
 
@@ -99,7 +117,9 @@ fun MessageCard(msg: Message) {
                 shape = MaterialTheme.shapes.medium,
                 elevation = 1.dp,
                 color = surfaceColor,
-                modifier = Modifier.animateContentSize().padding(1.dp)
+                modifier = Modifier
+                    .animateContentSize()
+                    .padding(1.dp)
             ) {
                 Text(
                     text = msg.body,
