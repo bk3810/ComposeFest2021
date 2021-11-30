@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(names: List<String> = listOf("World", "Compose", "BK", "Linkflow", "LOL")) {
+fun MyApp(names: List<String> = listOf("World", "Compose", "LOL")) {
     Column (modifier = Modifier.padding(vertical = 4.dp)) {
         for (name in names) {
             Greeting(name = name)
@@ -64,7 +64,7 @@ fun MyApp(names: List<String> = listOf("World", "Compose", "BK", "Linkflow", "LO
 
 @Composable
 private fun Greeting(name: String) {
-    var expanded = false
+    var expanded = remember { mutableStateOf(false)}
     Surface (
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
@@ -72,12 +72,12 @@ private fun Greeting(name: String) {
         Row(modifier = Modifier.padding(24.dp)) {
             Column(modifier = Modifier.weight(1f)) {
                 //Text(text = "안녕하세요 $name!", modifier = Modifier.padding(24.dp))
-                Text(text = "안녕하세요 ")
+                Text(text = "Hello, ")
                 Text(text = name)
             }
-            OutlinedButton(onClick = { expanded = !expanded/*TODO*/ }
+            OutlinedButton(onClick = { expanded.value = !expanded.value/*TODO*/ }
             ) {
-                Text(if (expanded) "Show less" else "show more")
+                Text(if (expanded.value) "Show less" else "show more")
             }
         }
     }
