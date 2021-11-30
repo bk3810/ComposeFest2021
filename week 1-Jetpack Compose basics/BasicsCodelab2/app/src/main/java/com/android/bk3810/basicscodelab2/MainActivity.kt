@@ -137,7 +137,7 @@ private fun Greeting(name: String) {
 }
 
 
-@Preview(showBackground = true, widthDp = 220)
+@Preview(showBackground = true, widthDp = 320, heightDp = 320, uiMode = Configuration.UI_MODE_NIGHT_YES, name = "DefaultPreviewDark")
 @Composable
 private fun DefaultPreview() {
     BasicsCodelab2Theme {
