@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+//이러한 컴포저블은 상태와 직접 상호 작용하며 작성에서 상태를 탐색하면서 이 파일을 편집합니다.
 package com.codelabs.state.todo
 
 import androidx.compose.foundation.clickable

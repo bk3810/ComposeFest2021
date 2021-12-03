@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+//TodoComponents.kt – 이 컴포저블은 TodoScreen을 빌드하는 데 사용할 UI의 재사용 가능한 비트를 정의합니다. 이 코드랩을 완료하기 위해 이러한 컴포저블을 편집할 필요는 없습니다.
+
 package com.codelabs.state.todo
 
 import androidx.annotation.StringRes
@@ -65,7 +67,6 @@ import androidx.compose.ui.unit.dp
  *
  * When not visible, will collapse to 16.dp high by default. You can enlarge this with the passed
  * modifier.
- *
  * @param icon (state) the current selected icon
  * @param onIconChange (event) request the selected icon change
  * @param modifier modifier for this element
