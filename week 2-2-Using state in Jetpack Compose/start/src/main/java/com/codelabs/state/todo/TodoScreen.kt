@@ -36,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelabs.state.util.generateRandomTodoItem
 import kotlin.random.Random
+import androidx.compose.material.LocalContentColor
 
 /**
  * Stateless component that is responsible for the entire todo screen.
@@ -92,8 +93,11 @@ fun TodoRow(todo: TodoItem, onItemClicked: (TodoItem) -> Unit, modifier: Modifie
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(todo.task)
+        val iconAlpha: Float = remember(todo.id) { randomTint() }
+
         Icon(
             imageVector = todo.icon.imageVector,
+            tint = LocalContentColor.current.copy(alpha = iconAlpha),
             contentDescription = stringResource(id = todo.icon.contentDescription)
         )
     }
